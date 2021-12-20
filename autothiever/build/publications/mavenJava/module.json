@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.openosrs.externals",
+    "module": "autothiever",
+    "version": "1.0.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.2.1",
+      "buildId": "vdhk4j7oenex7ihior37j3au2i"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "autothiever-1.0.3.jar",
+          "url": "autothiever-1.0.3.jar",
+          "size": 9129,
+          "sha512": "f31a3961bad70baa9a8c92366e2325ebb8302bcc09af58b0b80f88c21c4c74926b8af80ba5f67000e326ec36635ce344ffbe09313bcc8d050948b2431e950a6e",
+          "sha256": "c636aa2a52c262f19e2dd6aa9aa9214f176108a19594b10d3a58338d98d1a21a",
+          "sha1": "aad037706b099faf65a794d4d304bae31f575ca8",
+          "md5": "0e9d603f17d89fd738b55441fea849cb"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "autothiever-1.0.3.jar",
+          "url": "autothiever-1.0.3.jar",
+          "size": 9129,
+          "sha512": "f31a3961bad70baa9a8c92366e2325ebb8302bcc09af58b0b80f88c21c4c74926b8af80ba5f67000e326ec36635ce344ffbe09313bcc8d050948b2431e950a6e",
+          "sha256": "c636aa2a52c262f19e2dd6aa9aa9214f176108a19594b10d3a58338d98d1a21a",
+          "sha1": "aad037706b099faf65a794d4d304bae31f575ca8",
+          "md5": "0e9d603f17d89fd738b55441fea849cb"
+        }
+      ]
+    }
+  ]
+}

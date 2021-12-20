@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Plugin-Version: 1.0.3
+Plugin-Id: autothiever-plugin
+Plugin-Provider: illumine
+Plugin-Dependencies: iutils-plugin
+Plugin-Description: Automatically thieves from npcs
+Plugin-License: 3-Clause BSD License
+
