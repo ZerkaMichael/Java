@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.openosrs.externals",
+    "module": "rChickenSlayer",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.2.1",
+      "buildId": "vdhk4j7oenex7ihior37j3au2i"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "rChickenSlayer-1.0.0.jar",
+          "url": "rChickenSlayer-1.0.0.jar",
+          "size": 8257,
+          "sha512": "b86eeb9bc9c4747444b6eb93df79f2b2e3a55e59e683224ce54d9d6da4ffa43566baa62cca98bef1fd29902ecd8083ba10d40c06db310df241fbba8bc8a52ae5",
+          "sha256": "2d86389b94f58ef0e85079916bffeddc9c9948ccf30af7039230d557ea3e356c",
+          "sha1": "b10da567757d1c2516a40a064d23e2a724809dff",
+          "md5": "88f66007255512ab8e23d72acc30a43c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "rChickenSlayer-1.0.0.jar",
+          "url": "rChickenSlayer-1.0.0.jar",
+          "size": 8257,
+          "sha512": "b86eeb9bc9c4747444b6eb93df79f2b2e3a55e59e683224ce54d9d6da4ffa43566baa62cca98bef1fd29902ecd8083ba10d40c06db310df241fbba8bc8a52ae5",
+          "sha256": "2d86389b94f58ef0e85079916bffeddc9c9948ccf30af7039230d557ea3e356c",
+          "sha1": "b10da567757d1c2516a40a064d23e2a724809dff",
+          "md5": "88f66007255512ab8e23d72acc30a43c"
+        }
+      ]
+    }
+  ]
+}
