@@ -9,7 +9,7 @@ import org.osbot.rs07.script.Script;
 import org.osbot.rs07.script.ScriptManifest;
 import org.osbot.rs07.utility.ConditionalSleep;
 
-@ScriptManifest(name = "rWoodCutter", info="Cuts trees based on level for HCIM accounts outside of varrock west bank. Will bank logs.", logo= "", version = 0.1, author = "Ryder")
+@ScriptManifest(name = "rWoodCutter", info="Cuts trees based on level for HCIM accounts outside of varrock west bank. Will bank logs.", logo= "", version = 0.1, author = "")
 
 public class main extends Script {
 
