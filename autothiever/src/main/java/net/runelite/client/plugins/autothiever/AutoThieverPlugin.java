@@ -146,7 +146,7 @@ public class AutoThieverPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onGameTick(GameTick event){
+    public void onGameTick(GameTick event) {
         player = client.getLocalPlayer();
         beforeLoc = player.getLocalLocation();
 
@@ -154,7 +154,7 @@ public class AutoThieverPlugin extends Plugin {
             timeout--;
             return;
         }
-        if(playerUtils.isInteracting() || playerUtils.isMoving() || playerUtils.isAnimating() || iterating){
+        if (playerUtils.isInteracting() || playerUtils.isMoving() || playerUtils.isAnimating() || iterating) {
             timeout = 1;
             return;
         }
@@ -162,13 +162,13 @@ public class AutoThieverPlugin extends Plugin {
             return;
         }
 
-        if(bank.isOpen()){
+        if (bank.isOpen()) {
             handleBanking();
             timeout = tickDelay()+ 3;
             return;
         }
 
-        if(shouldBank()){
+        if (shouldBank()) {
             openBank();
             timeout = tickDelay()+ 5;
             return;
@@ -179,7 +179,7 @@ public class AutoThieverPlugin extends Plugin {
             return;
         }
 
-        if(shouldEquipNeck()){
+        if (shouldEquipNeck()) {
             wearNeck();
             timeout = 5;
             return;
@@ -195,16 +195,16 @@ public class AutoThieverPlugin extends Plugin {
         handleThieving();
     }
 
-    public void handleThieving(){
+    public void handleThieving() {
         NPC thieveNPC = npc.findNearestNpc(config.npcId());
-        if(thieveNPC == null){
+        if (thieveNPC == null) {
             iUtils.sendGameMessage("npc null");
             return;
-        }else{
+        } else {
             targetMenu = new MenuEntry("Pickpocket", "", thieveNPC.getIndex(), MenuAction.NPC_THIRD_OPTION.getId(), 0, 0, false);
-            if(config.useInvoke()){
+            if (config.useInvoke()) {
                 iUtils.doInvokeMsTime(targetMenu, sleepDelay());
-            }else{
+            } else {
                 iUtils.doNpcActionMsTime(thieveNPC, MenuAction.NPC_THIRD_OPTION.getId(), sleepDelay());
             }
         }timeout = 1;
@@ -236,11 +236,11 @@ public class AutoThieverPlugin extends Plugin {
         if (item == null) {
             iUtils.sendGameMessage("pouch null");
             return;
-        }else{
+        } else {
             targetMenu = new MenuEntry("Open-all", "", item.getId(), MenuAction.ITEM_FIRST_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(), false);
-            if(config.useInvoke()){
+            if (config.useInvoke()) {
                 iUtils.doInvokeMsTime(targetMenu, sleepDelay());
-            }else{
+            } else {
                 iUtils.doActionMsTime(targetMenu, item.getCanvasBounds(), sleepDelay());
             }
         }timeout = 1;
@@ -261,9 +261,9 @@ public class AutoThieverPlugin extends Plugin {
             return;
         }else{
             targetMenu = new MenuEntry("Wear", "", neck.getId(), MenuAction.ITEM_SECOND_OPTION.getId(), neck.getIndex(), WidgetInfo.INVENTORY.getId(), false);
-            if(config.useInvoke()){
+            if (config.useInvoke()) {
                 iUtils.doInvokeMsTime(targetMenu, sleepDelay());
-            }else{
+            } else {
                 iUtils.doActionMsTime(targetMenu, neck.getCanvasBounds(), sleepDelay());
             }
         }
@@ -285,13 +285,13 @@ public class AutoThieverPlugin extends Plugin {
 
         WidgetItem item = list.get(0);
 
-        if(item == null){
+        if (item == null) {
             return;
-        }else{
+        } else {
             targetMenu = new MenuEntry("", "", item.getId(), MenuAction.ITEM_FIRST_OPTION.getId(), item.getIndex(), WidgetInfo.INVENTORY.getId(), false);
-            if(config.useInvoke()){
+            if (config.useInvoke()) {
                 iUtils.doInvokeMsTime(targetMenu, sleepDelay());
-            }else{
+            } else {
                 iUtils.doActionMsTime(targetMenu, item.getCanvasBounds(), sleepDelay());
             }
         }timeout = 4;
@@ -337,23 +337,23 @@ public class AutoThieverPlugin extends Plugin {
     }
 
     public void handleBanking(){
-        if(inventory.containsItemAmount(ItemID.JUG_OF_WINE, 22, false, true)&&inventory.containsItemAmount(ItemID.DODGY_NECKLACE, 4, false, true)){
+        if (inventory.containsItemAmount(ItemID.JUG_OF_WINE, 22, false, true)&&inventory.containsItemAmount(ItemID.DODGY_NECKLACE, 4, false, true)) {
             bank.close();
-        }else{
-            if(bank.contains(ItemID.DODGY_NECKLACE, 4)){
+        } else {
+            if (bank.contains(ItemID.DODGY_NECKLACE, 4)) {
                 count = 4 - (inventory.getItemCount(ItemID.DODGY_NECKLACE, false));
-                if(count != 0){
+                if (count != 0) {
                     bank.withdrawItemAmount(ItemID.DODGY_NECKLACE, count);
                     timeout = tickDelay()+2;
                 }
             }
-            if(inventory.containsItem(ItemID.JUG)){
+            if (inventory.containsItem(ItemID.JUG)) {
                 bank.depositAllOfItem(ItemID.JUG);
                 timeout = tickDelay()+2;
             }
-            if(bank.contains(ItemID.JUG_OF_WINE, 22)){
+            if (bank.contains(ItemID.JUG_OF_WINE, 22)) {
                 count = 22 - (inventory.getItemCount(ItemID.JUG_OF_WINE, false));
-                if(count != 0){
+                if (count != 0) {
                     bank.withdrawItemAmount(ItemID.JUG_OF_WINE, count);
                     timeout = tickDelay()+2;
                 }
@@ -376,12 +376,12 @@ public class AutoThieverPlugin extends Plugin {
 
         return null;
     }
-    private long sleepDelay(){
+    private long sleepDelay() {
         sleepLength = calc.randomDelay(true, 55,525,50,150);
         return sleepLength;
     }
 
-    private int tickDelay(){
+    private int tickDelay() {
         tickLength = (int) calc.randomDelay(true, 1,5,2,2);
         return tickLength;
     }
