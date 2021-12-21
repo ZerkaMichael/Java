@@ -6,8 +6,7 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
 @ConfigGroup("autothiever")
-public interface AutoThieverConfig extends Config
-{
+public interface AutoThieverConfig extends Config {
 	@ConfigItem(
 		keyName = "hpCheckStyle",
 		name = "Health Check Style",
@@ -15,10 +14,7 @@ public interface AutoThieverConfig extends Config
 		enumClass = HealthCheckStyle.class,
 		position = 0
 	)
-	default HealthCheckStyle hpCheckStyle()
-	{
-		return HealthCheckStyle.PERCENTAGE;
-	}
+	default HealthCheckStyle hpCheckStyle() { return HealthCheckStyle.PERCENTAGE; }
 
 	@ConfigItem(
 		keyName = "hpToEat",
@@ -26,10 +22,7 @@ public interface AutoThieverConfig extends Config
 		description = "",
 		position = 1
 	)
-	default int hpToEat()
-	{
-		return 50;
-	}
+	default int hpToEat() { return 50; }
 
 	@ConfigItem(
 		keyName = "itemId",
@@ -37,10 +30,7 @@ public interface AutoThieverConfig extends Config
 		description = "",
 		position = 2
 	)
-	default int itemId()
-	{
-		return 1993;
-	}
+	default int itemId() { return 1993;}
 
 	@ConfigItem(
 		keyName = "npcId",
@@ -66,10 +56,7 @@ public interface AutoThieverConfig extends Config
 		description = "The minimum delay (in ticks)",
 		position = 5
 	)
-	default int clickDelayMin()
-	{
-		return 8;
-	}
+	default int clickDelayMin() { return 8; }
 
 	@ConfigItem(
 		keyName = "clickDelayMax",
@@ -77,10 +64,7 @@ public interface AutoThieverConfig extends Config
 		description = "The maximum delay (in ticks)",
 		position = 6
 	)
-	default int clickDelayMax()
-	{
-		return 20;
-	}
+	default int clickDelayMax() { return 20; }
 
 	@ConfigItem(
 			keyName = "useInvoke",
@@ -88,9 +72,7 @@ public interface AutoThieverConfig extends Config
 			description = "Uses invokes instead of actions",
 			position = 7
 	)
-	default boolean useInvoke() {
-		return false;
-	}
+	default boolean useInvoke() { return false; }
 
 	@ConfigItem(keyName = "startButton",
 		name = "Start",
