@@ -59,11 +59,11 @@ public class main extends Script {
     }
 
     private State getState(){
-        if(inventory.isFull() && inventory.contains(tinderBoxId) && inventory.contains(getWoodType())) return State.WALK_TO_LOCATION;
-        if(inventory.isEmptyExcept(tinderBoxId)) return State.BANK;
-        if(fm_Area.contains(myPlayer())) return State.FIRE_MAKE;
-        if(isFinished()) return State.QUIT;
-        if(myPlayer().isAnimating() || myPlayer().isMoving() || myPlayer().exists()) return State.WAIT;
+        if (inventory.isFull() && inventory.contains(tinderBoxId) && inventory.contains(getWoodType())) { return State.WALK_TO_LOCATION; }
+        if (inventory.isEmptyExcept(tinderBoxId)) { return State.BANK; }
+        if (fm_Area.contains(myPlayer())) { return State.FIRE_MAKE; }
+        if (isFinished()) { return State.QUIT; }
+        if (myPlayer().isAnimating() || myPlayer().isMoving() || myPlayer().exists()) { return State.WAIT; }
 
         return State.ERROR;
     }
@@ -95,7 +95,7 @@ public class main extends Script {
         }
     }
 
-    public boolean isFinished() {return getSkills().getDynamic(Skill.FIREMAKING) >= 50 || getBank().isOpen() && !getBank().contains(getWoodType());}
+    public boolean isFinished() { return getSkills().getDynamic(Skill.FIREMAKING) >= 50 || getBank().isOpen() && !getBank().contains(getWoodType()); }
 
     public void burnLogs() throws InterruptedException {
         Position pol = myPlayer().getPosition().translate(14, -2);
@@ -156,11 +156,7 @@ public class main extends Script {
                     }
                 }
             }
-
             return longestConsecutiveRow;
         }
     }
-
-
-
 }
