@@ -3,7 +3,7 @@ package net.runelite.client.plugins.rChickenSlayer;
 import net.runelite.client.config.*;
 
 @ConfigGroup("rChickenSlayer")
-public interface rChickenSlayerConfiguration extends Config{
+public interface rChickenSlayerConfiguration extends Config {
 	@ConfigTitle(
 			keyName = "coordsTitle",
 			name = "Custom Coordinate Settings",
@@ -20,10 +20,7 @@ public interface rChickenSlayerConfiguration extends Config{
 			title = "Custom Locations"
 
 	)
-	default String customChickenLocation()
-	{
-		return "3228,3297,0";
-	}
+	default String customChickenLocation() { return "3228,3297,0"; }
 
 	@ConfigItem(
 			keyName = "startButton",
