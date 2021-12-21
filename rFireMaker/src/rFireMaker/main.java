@@ -39,9 +39,9 @@ public class main extends Script {
                 stop();
                 break;
             case WAIT:
-                new ConditionalSleep(random(250,7500)){
+                new ConditionalSleep(random(250,7500)) {
                     @Override
-                    public boolean condition() throws InterruptedException{
+                    public boolean condition() throws InterruptedException {
                         return myPlayer().isAnimating();
                     }
                 }.sleep();
@@ -69,21 +69,21 @@ public class main extends Script {
     }
 
     private String getWoodType() {
-        if(getSkills().getDynamic(Skill.FIREMAKING) >= 15){
+        if (getSkills().getDynamic(Skill.FIREMAKING) >= 15) {
             return "1521";
-        }else{
+        } else{
             return "1511";
         }
 
     }
 
     private void bank() throws InterruptedException {
-        if(!Banks.VARROCK_WEST.contains(myPlayer())){
+        if (!Banks.VARROCK_WEST.contains(myPlayer())) {
             getWalking().webWalk(Banks.VARROCK_WEST);
-        }else{
-            if(!getBank().isOpen()){
+        } else {
+            if (!getBank().isOpen()) {
                 getBank().open();
-            }else{
+            } else {
                 getBank().withdrawAll(getWoodType());
             }
         }
