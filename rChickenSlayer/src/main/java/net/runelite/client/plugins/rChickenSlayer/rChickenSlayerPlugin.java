@@ -93,18 +93,18 @@ public class rChickenSlayerPlugin extends Plugin{
     boolean waiting;
 
     @Provides
-    rChickenSlayerConfiguration provideConfig(ConfigManager configManager){
+    rChickenSlayerConfiguration provideConfig(ConfigManager configManager) {
         return configManager.getConfig(rChickenSlayerConfiguration.class);
     }
 
     @Override
-    protected void startUp(){
+    protected void startUp() {
         iUtils.sendGameMessage("/||Plugin Started||\\");
         overlayManager.add(overlay);
     }
 
     @Override
-    protected void shutDown(){
+    protected void shutDown() {
         botTimer = null;
         walkToChicken = false;
         startBot = false;
@@ -114,40 +114,39 @@ public class rChickenSlayerPlugin extends Plugin{
     }
 
     @Subscribe
-    public void onConfigButtonClicked(ConfigButtonClicked event){
-        if(!event.getGroup().equalsIgnoreCase("rChickenSlayer")){
+    public void onConfigButtonClicked(ConfigButtonClicked event) {
+        if (!event.getGroup().equalsIgnoreCase("rChickenSlayer")) {
             return;
         }
 
-        if(event.getKey().equals("startButton")){
+        if (event.getKey().equals("startButton")) {
             iUtils.sendGameMessage("starting");
             botTimer = Instant.now();
             walkToChicken = true;
             startBot = true;
             waiting = false;
-        }else if(event.getKey().equals("stopButton")){
+        } else if(event.getKey().equals("stopButton")) {
             iUtils.sendGameMessage("stopping");
             startBot = false;
         }
     }
 
     @Subscribe
-    public void onGameTick(GameTick event){
-        if(!startBot){
+    public void onGameTick(GameTick event) {
+        if (!startBot){
             return;
         }
         player = client.getLocalPlayer();
-        if(client != null && player != null && client.getGameState() == GameState.LOGGED_IN){
+        if (client != null && player != null && client.getGameState() == GameState.LOGGED_IN) {
             if(timeout > 0){
                 timeout--;
-            }else{
+            } else {
                 states = getState();
-                switch(states){
+                switch(states) {
                     case "TIMEOUT":
                         status = "Timeout";
                         timeout--;
                     break;
-
                     case "WAIT":
                         if(player.getWorldLocation().distanceTo(customLocation) > 20){
                             walk.webWalk(customLocation, 5, playerUtils.isMoving(beforeLoc), sleepDelay());
@@ -158,17 +157,16 @@ public class rChickenSlayerPlugin extends Plugin{
                             waiting = true;
                         }
                     break;
-
                     case "ATTACK":
-                        if(!inCombat()){
+                        if (!inCombat()) {
                             status = "Attacking";
                             NPC chickenNpc = npc.findNearestAttackableNpcWithin(customLocation, 20, "Chicken", true);
-                            if(chickenNpc != null){
+                            if (chickenNpc != null) {
                                 targetMenu = new MenuEntry("", "", chickenNpc.getIndex(), MenuAction.NPC_SECOND_OPTION.getId(), 0, 0, false);
                                 iUtils.doActionMsTime(targetMenu, chickenNpc.getConvexHull().getBounds(), sleepDelay());
                                 timeout = tickDelay() + 1;
                             }
-                        }else{
+                        } else {
                             status = "Sleep";
                             timeout = tickDelay() + 1;
                         }
@@ -180,36 +178,36 @@ public class rChickenSlayerPlugin extends Plugin{
 
     }
 
-    private String getState(){
-        if(walkToChicken){
+    private String getState() {
+        if (walkToChicken) {
             return "WAIT";
         }
-        if(timeout > 0){
+        if (timeout > 0) {
             playerUtils.handleRun(20, 20);
             return "TIMEOUT";
         }
-        if(waiting){
+        if (waiting) {
             return "ATTACK";
-        }else{
+        } else {
             return null;
         }
     }
 
-    private boolean inCombat(){
+    private boolean inCombat() {
         NPC currentNPC = (NPC) player.getInteracting();
-        if(currentNPC == null){
+        if (currentNPC == null) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    private long sleepDelay(){
+    private long sleepDelay() {
         sleepLength = calc.randomDelay(true, 55,525,50,150);
         return sleepLength;
     }
 
-    private int tickDelay(){
+    private int tickDelay() {
         tickLength = (int) calc.randomDelay(false, 1,5,2,2);
         return tickLength;
     }
