@@ -44,8 +44,7 @@ public class rChickenSlayerOverlay extends OverlayPanel {
     }
 
     @Override
-    public Dimension render(Graphics2D graphics)
-    {
+    public Dimension render(Graphics2D graphics) {
 
         TableComponent tableComponent = new TableComponent();
         tableComponent.setColumnAlignments(TableAlignment.LEFT, TableAlignment.RIGHT);
@@ -60,8 +59,7 @@ public class rChickenSlayerOverlay extends OverlayPanel {
             tableComponent.addRow("Time running:", "00:00");
         }
 
-        if (!tableComponent.isEmpty())
-        {
+        if (!tableComponent.isEmpty()) {
             panelComponent.setBackgroundColor(ColorUtil.fromHex("#B3121212")); //Material Dark default
             panelComponent.setPreferredSize(new Dimension(200, 200));
             panelComponent.setBorder(new Rectangle(5, 5, 5, 5));
